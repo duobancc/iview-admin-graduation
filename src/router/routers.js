@@ -74,7 +74,7 @@ export default [
     path: '/user',
     name: '用户管理',
     meta: {
-      icon: 'md-menu',
+      icon: 'md-people',
       title: '用户管理'
     },
     component: Main,
@@ -83,7 +83,7 @@ export default [
         path: 'employee',
         name: '教师管理',
         meta: {
-          icon: 'md-funnel',
+          icon: 'md-contacts',
           title: 'tercher'
         },
         component: () => import('@/view/user/Employee.vue')
@@ -92,10 +92,19 @@ export default [
         path: 'department',
         name: '部门管理',
         meta: {
-          icon: 'md-funnel',
+          icon: 'md-apps',
           title: 'department'
         },
         component: () => import('@/view/user/Department.vue')
+      },
+      {
+        path: 'auth',
+        name: '权限管理',
+        meta: {
+          icon: 'md-key',
+          title: '权限管理'
+        },
+        component: () => import('@/view/user/Auth.vue')
       }
     ]
   },
@@ -103,25 +112,25 @@ export default [
     path:'/assessment',
     name:'效绩考核',
     meta:{
-      icon: 'md-menu',
+      icon: 'logo-buffer',
       title: '效绩考核'
     },
     component:Main,
     children:[
         {
           path:'assessment_chart',
-          name:'assessment_chart',
+          name:'绩效图表',
           meta:{
-              icon:'md-funnel',
+              icon:'md-pie',
               title:'assessment_chart'
           },
           component: () => import('@/view/assessment/assessment_chart.vue')
         },
         {
           path:'assessment_table',
-          name:'assessment_table',
+          name:'绩效表格',
           meta:{
-              icon:'md-funnel',
+              icon:'md-grid',
               title:'assessment_table'
           },
           component: () => import('@/view/assessment/assessment_table.vue')
@@ -138,10 +147,10 @@ export default [
     component: Main,
     children:[
       {
-        path:'chart',
+        path:'charts',
         name:'chart',
         meta:{
-          icon:'md-funnel',
+          icon:'md-pie',
           title:'chart'
         },
         component: () => import('@/view/inside/charts.vue')
@@ -150,19 +159,28 @@ export default [
         path:'table',
         name:'table',
         meta:{
-          icon:'md-funnel',
+          icon:'md-grid',
           title:'table'
         },
         component: () => import('@/view/inside/table.vue')
       },
       {
-        path: 'upload-excel',
-        name: 'upload-excel',
-        meta: {
-          icon: 'md-add',
-          title: '导入EXCEL'
+        path:'change',
+        name:'校内工作量录入与修改',
+        meta:{
+          icon:'md-grid',
+          title:'校内工作量录入与修改'
         },
-        component: () => import('@/view/excel/upload-excel.vue')
+        component: () => import('@/view/inside/change.vue')
+      },
+      {
+        path:'review',
+        name:'审核',
+        meta:{
+          icon:'md-grid',
+          title:'审核'
+        },
+        component: () => import('@/view/inside/review.vue')
       }
     ]
   },
@@ -179,7 +197,7 @@ export default [
             path:'charts',
             name:'charts',
             meta:{
-              icon: 'md-funnel',
+              icon: 'md-pie',
               title:'charts'
             },
           component: () => import('@/view/outside/charts.vue')
@@ -188,24 +206,40 @@ export default [
             path:'tables',
               name:'tables',
               meta:{
-                icon: 'md-funnel',
+                icon: 'md-grid',
                 title:'tables'
               },
-            //component: () => import('@/view/outside/tables.vue')
-           // component: () => import('@/view/outside/Out_table.vue')
+            component: () => import('@/view/outside/table.vue')
           },
           {
-            path: 'upload-excels',
-            name: 'upload-excel',
-            meta: {
-              icon: 'md-add',
-              title: '导入EXCEL'
+            path:'changes',
+            name:'校外工作量录入与修改',
+            meta:{
+              icon:'md-grid',
+              title:'工作量录入与修改'
             },
-            component: () => import('@/view/excel/upload-excel.vue')
+            component: () => import('@/view/outside/changes.vue')
+          },
+          {
+            path:'outreview',
+            name:'校外审核',
+            meta:{
+              icon:'md-grid',
+              title:'审核'
+            },
+            component: () => import('@/view/outside/review.vue')
+          },
+          {
+            path:'amend',
+            name:'工作量修正',
+            meta:{
+              icon:'md-grid',
+              title:'修正'
+            },
+            component: () => import('@/view/outside/amend.vue')
           }
       ]
   },
-
   {
     path: '/update',
     name: 'update',
@@ -236,14 +270,15 @@ export default [
     ]
   },
   {
-    path: '/excel',
-    name: 'excel',
-    meta: {
-      icon: 'ios-stats',
-      title: 'EXCEL导入导出'
+    path:'/file',
+    name:'文件管理',
+    meta:{
+      icon:'md-folder',
+      title:'文件管理',
+      showAlways:true
     },
     component: Main,
-    children: [
+    children:[
       {
         path: 'upload-excel',
         name: 'upload-excel',
@@ -261,9 +296,20 @@ export default [
           title: '导出EXCEL'
         },
         component: () => import('@/view/excel/export-excel.vue')
-      }
+      },
+        {
+          path:'fileupload',
+          name:'文件上传',
+          meta:{
+              icon:'md-cloud-upload',
+              title:'文件上传',
+          },
+          component: () => import('@/view/file/FileUpLoad.vue')
+        },
+
     ]
   },
+
   {
     path: '/argu',
     name: 'argu',

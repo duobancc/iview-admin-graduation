@@ -17,361 +17,389 @@ import parentView from '@/components/parent-view'
  * }
  */
 
-export default [
-  {
-    path: '/login',
-    name: 'login',
-    meta: {
-      title: 'Login - 登录',
-      hideInMenu: true
-    },
-    component: () => import('@/view/login/login.vue')
-  },
-  {
-    path: '/',
-    name: '_home',
-    redirect: '/home',
-    component: Main,
-    meta: {
-      hideInMenu: true,
-      notCache: true
-    },
-    children: [
-      {
-        path: '/home',
-        name: 'home',
+export default [{
+        path: '/login',
+        name: 'login',
         meta: {
-          hideInMenu: true,
-          title: '首页',
-          notCache: true,
-          icon: 'md-home'
+            title: 'Login - 登录',
+            hideInMenu: true
         },
-        component: () => import('@/view/single-page/home')
-      }
-    ]
-  },
-  {
-    path: '/message',
-    name: 'message',
-    component: Main,
-    meta: {
-      hideInBread: true,
-      hideInMenu: true
+        component: () =>
+            import ('@/view/login/login.vue')
     },
-    children: [
-      {
-        path: 'message_page',
-        name: 'message_page',
+    {
+        path: '/',
+        name: '_home',
+        redirect: '/home',
+        component: Main,
         meta: {
-          icon: 'md-notifications',
-          title: '消息中心'
+            hideInMenu: true,
+            notCache: true
         },
-        component: () => import('@/view/single-page/message/index.vue')
-      }
-    ]
-  },
-  {
-    path: '',
-    name: 'doc',
-    meta: {
-      title: '文档',
-      href: 'https://lison16.github.io/iview-admin-doc/#/',
-      icon: 'ios-book'
-    }
-  },
-  {
-    path: '/user',
-    name: '用户管理',
-    meta: {
-      icon: 'md-people',
-      title: '用户管理'
+        children: [{
+            path: '/home',
+            name: 'home',
+            meta: {
+                hideInMenu: true,
+                title: '首页',
+                notCache: true,
+                icon: 'md-home'
+            },
+            component: () =>
+                import ('@/view/single-page/home')
+        }]
     },
-    component: Main,
-    children: [
-      {
-        path: 'employee',
-        name: '教师管理',
+    {
+        path: '/message',
+        name: 'message',
+        component: Main,
         meta: {
-          icon: 'md-contacts',
-          title: 'tercher'
+            hideInBread: true,
+            hideInMenu: true
         },
-        component: () => import('@/view/user/Employee.vue')
-      },
-      {
-        path: 'department',
-        name: '部门管理',
-        meta: {
-          icon: 'md-apps',
-          title: 'department'
-        },
-        component: () => import('@/view/user/Department.vue')
-      },
-      {
-        path: 'auth',
-        name: '权限管理',
-        meta: {
-          icon: 'md-key',
-          title: '权限管理'
-        },
-        component: () => import('@/view/user/Auth.vue')
-      }
-    ]
-  },
-  {
-    path:'/assessment',
-    name:'效绩考核',
-    meta:{
-      icon: 'logo-buffer',
-      title: '效绩考核'
+        children: [{
+            path: 'message_page',
+            name: 'message_page',
+            meta: {
+                icon: 'md-notifications',
+                title: '消息中心'
+            },
+            component: () =>
+                import ('@/view/single-page/message/index.vue')
+        }]
     },
-    component:Main,
-    children:[
-        {
-          path:'assessment_chart',
-          name:'绩效图表',
-          meta:{
-              icon:'md-pie',
-              title:'assessment_chart'
-          },
-          component: () => import('@/view/assessment/assessment_chart.vue')
-        },
-        {
-          path:'assessment_table',
-          name:'绩效表格',
-          meta:{
-              icon:'md-grid',
-              title:'assessment_table'
-          },
-          component: () => import('@/view/assessment/assessment_table.vue')
+    {
+        path: '',
+        name: 'doc',
+        meta: {
+            title: '文档',
+            href: 'https://lison16.github.io/iview-admin-doc/#/',
+            icon: 'ios-book'
         }
-    ]
-  },
-  {
-    path:'/inside',
-    name:'校内工作量',
-    meta:{
-      icon: 'md-menu',
-      title: '校内工作量'
     },
-    component: Main,
-    children:[
-      {
-        path:'charts',
-        name:'chart',
-        meta:{
-          icon:'md-pie',
-          title:'chart'
+    {
+        path: '/user',
+        name: '用户管理',
+        meta: {
+            icon: 'md-people',
+            title: '用户管理'
         },
-        component: () => import('@/view/inside/charts.vue')
-      },
-      {
-        path:'table',
-        name:'table',
-        meta:{
-          icon:'md-grid',
-          title:'table'
-        },
-        component: () => import('@/view/inside/table.vue')
-      },
-      {
-        path:'change',
-        name:'校内工作量录入与修改',
-        meta:{
-          icon:'md-grid',
-          title:'校内工作量录入与修改'
-        },
-        component: () => import('@/view/inside/change.vue')
-      },
-      {
-        path:'review',
-        name:'审核',
-        meta:{
-          icon:'md-grid',
-          title:'审核'
-        },
-        component: () => import('@/view/inside/review.vue')
-      }
-    ]
-  },
-  {
-      path:'/outside',
-      name:'校外工作量',
-      meta:{
-        icon:'md-menu',
-        title:'校外工作量'
-      },
-      component:Main,
-      children:[
-          {
-            path:'charts',
-            name:'charts',
-            meta:{
-              icon: 'md-pie',
-              title:'charts'
+        component: Main,
+        children: [{
+                path: 'employee',
+                name: 'teacher',
+                meta: {
+                    icon: 'md-contacts',
+                    title: '教师管理'
+                },
+                component: () =>
+                    import ('@/view/user/Employee.vue')
             },
-          component: () => import('@/view/outside/charts.vue')
-          },
-          {
-            path:'tables',
-              name:'tables',
-              meta:{
-                icon: 'md-grid',
-                title:'tables'
-              },
-            component: () => import('@/view/outside/table.vue')
-          },
-          {
-            path:'changes',
-            name:'校外工作量录入与修改',
-            meta:{
-              icon:'md-grid',
-              title:'工作量录入与修改'
+            {
+                path: 'department',
+                name: 'department',
+                meta: {
+                    icon: 'md-apps',
+                    title: '部门管理'
+                },
+                component: () =>
+                    import ('@/view/user/Department.vue')
             },
-            component: () => import('@/view/outside/changes.vue')
-          },
-          {
-            path:'outreview',
-            name:'校外审核',
-            meta:{
-              icon:'md-grid',
-              title:'审核'
-            },
-            component: () => import('@/view/outside/review.vue')
-          },
-          {
-            path:'amend',
-            name:'工作量修正',
-            meta:{
-              icon:'md-grid',
-              title:'修正'
-            },
-            component: () => import('@/view/outside/amend.vue')
-          }
-      ]
-  },
-  {
-    path: '/update',
-    name: 'update',
-    meta: {
-      icon: 'md-cloud-upload',
-      title: '数据上传'
+            {
+                path: 'auth',
+                name: 'authority',
+                meta: {
+                    icon: 'md-key',
+                    title: '权限管理'
+                },
+                component: () =>
+                    import ('@/view/user/Auth.vue')
+            }
+        ]
     },
-    component: Main,
-    children: [
-      {
-        path: 'update_table_page',
-        name: 'update_table_page',
+    {
+        path: '/assessment',
+        name: '效绩考核',
         meta: {
-          icon: 'ios-document',
-          title: '上传Csv'
+            icon: 'logo-buffer',
+            title: '效绩考核'
         },
-        component: () => import('@/view/update/update-table.vue')
-      },
-      {
-        path: 'update_paste_page',
-        name: 'update_paste_page',
-        meta: {
-          icon: 'md-clipboard',
-          title: '粘贴表格数据'
-        },
-        component: () => import('@/view/update/update-paste.vue')
-      }
-    ]
-  },
-  {
-    path:'/file',
-    name:'文件管理',
-    meta:{
-      icon:'md-folder',
-      title:'文件管理',
-      showAlways:true
-    },
-    component: Main,
-    children:[
-      {
-        path: 'upload-excel',
-        name: 'upload-excel',
-        meta: {
-          icon: 'md-add',
-          title: '导入EXCEL'
-        },
-        component: () => import('@/view/excel/upload-excel.vue')
-      },
-      {
-        path: 'export-excel',
-        name: 'export-excel',
-        meta: {
-          icon: 'md-download',
-          title: '导出EXCEL'
-        },
-        component: () => import('@/view/excel/export-excel.vue')
-      },
-        {
-          path:'fileupload',
-          name:'文件上传',
-          meta:{
-              icon:'md-cloud-upload',
-              title:'文件上传',
-          },
-          component: () => import('@/view/file/FileUpLoad.vue')
-        },
+        component: Main,
+        children: [{
+                path: 'assessment_chart',
+                name: '绩效图表',
+                meta: {
+                    icon: 'md-pie',
+                    title: '绩效图表'
 
-    ]
-  },
+                },
+                component: () =>
+                    import ('@/view/assessment/assessment_chart.vue')
+            },
+            {
+                path: 'assessment_table',
+                name: '绩效表格',
+                meta: {
+                    icon: 'md-grid',
+                    title: '绩效表格'
+                },
+                component: () =>
+                    import ('@/view/assessment/assessment_table.vue')
+            },
+            {
+                path: 'assessment_write',
+                name: '绩效录入',
+                meta: {
+                    icon: 'md-grid',
+                    title: '绩效录入'
+                },
+                component: () =>
+                    import ('../view/assessment/assessment_write')
 
-  {
-    path: '/argu',
-    name: 'argu',
-    meta: {
-      hideInMenu: true
+            }
+        ]
     },
-    component: Main,
-    children: [
-      {
-        path: 'params/:id',
-        name: 'params',
+    {
+        path: '/inside',
+        name: '校内工作量',
         meta: {
-          icon: 'md-flower',
-          title: route => `{{ params }}-${route.params.id}`,
-          notCache: true,
-          beforeCloseName: 'before_close_normal'
+            icon: 'md-menu',
+            title: '校内工作量'
         },
-        component: () => import('@/view/argu-page/params.vue')
-      },
-      {
-        path: 'query',
-        name: 'query',
+        component: Main,
+        children: [{
+                path: 'charts',
+                name: 'chart',
+                meta: {
+                    icon: 'md-pie',
+                    title: 'chart'
+                },
+                component: () =>
+                    import ('@/view/inside/charts.vue')
+            },
+            {
+                path: 'table',
+                name: 'table',
+                meta: {
+                    icon: 'md-grid',
+                    title: 'table'
+                },
+                component: () =>
+                    import ('@/view/inside/table.vue')
+            },
+            {
+                path: 'change',
+                name: '校内工作量录入与修改',
+                meta: {
+                    icon: 'md-grid',
+                    title: '校内工作量录入与修改'
+                },
+                component: () =>
+                    import ('@/view/inside/change.vue')
+            },
+            {
+                path: 'review',
+                name: '审核',
+                meta: {
+                    icon: 'md-grid',
+                    title: '审核'
+                },
+                component: () =>
+                    import ('@/view/inside/review.vue')
+            }
+        ]
+    },
+    {
+        path: '/outside',
+        name: '校外工作量',
         meta: {
-          icon: 'md-flower',
-          title: route => `{{ query }}-${route.query.id}`,
-          notCache: true
+            icon: 'md-menu',
+            title: '校外工作量'
         },
-        component: () => import('@/view/argu-page/query.vue')
-      }
-    ]
-  },
-  {
-    path: '/401',
-    name: 'error_401',
-    meta: {
-      hideInMenu: true
+        component: Main,
+        children: [{
+                path: 'charts',
+                name: 'charts',
+                meta: {
+                    icon: 'md-pie',
+                    title: 'charts'
+                },
+                component: () =>
+                    import ('@/view/outside/charts.vue')
+            },
+            {
+                path: 'tables',
+                name: 'tables',
+                meta: {
+                    icon: 'md-grid',
+                    title: 'tables'
+                },
+                component: () =>
+                    import ('@/view/outside/table.vue')
+            },
+            {
+                path: 'changes',
+                name: '校外工作量录入与修改',
+                meta: {
+                    icon: 'md-grid',
+                    title: '工作量录入与修改'
+                },
+                component: () =>
+                    import ('@/view/outside/changes.vue')
+            },
+            {
+                path: 'outreview',
+                name: '校外审核',
+                meta: {
+                    icon: 'md-grid',
+                    title: '审核'
+                },
+                component: () =>
+                    import ('@/view/outside/review.vue')
+            },
+            {
+                path: 'amend',
+                name: '工作量修正',
+                meta: {
+                    icon: 'md-grid',
+                    title: '修正'
+                },
+                component: () =>
+                    import ('@/view/outside/amend.vue')
+            }
+        ]
     },
-    component: () => import('@/view/error-page/401.vue')
-  },
-  {
-    path: '/500',
-    name: 'error_500',
-    meta: {
-      hideInMenu: true
+    {
+        path: '/update',
+        name: 'update',
+        meta: {
+            icon: 'md-cloud-upload',
+            title: '数据上传'
+        },
+        component: Main,
+        children: [{
+                path: 'update_table_page',
+                name: 'update_table_page',
+                meta: {
+                    icon: 'ios-document',
+                    title: '上传Csv'
+                },
+                component: () =>
+                    import ('@/view/update/update-table.vue')
+            },
+            {
+                path: 'update_paste_page',
+                name: 'update_paste_page',
+                meta: {
+                    icon: 'md-clipboard',
+                    title: '粘贴表格数据',
+                },
+                component: () =>
+                    import ('@/view/update/update-paste.vue')
+            }
+        ]
     },
-    component: () => import('@/view/error-page/500.vue')
-  },
-  {
-    path: '*',
-    name: 'error_404',
-    meta: {
-      hideInMenu: true
+
+    {
+        path: '/file',
+        name: '文件管理',
+        meta: {
+            icon: 'md-folder',
+            title: '文件管理',
+            showAlways: true
+        },
+        component: Main,
+        children: [{
+                path: 'upload-excel',
+                name: 'upload-excel',
+                meta: {
+                    icon: 'md-add',
+                    title: '导入EXCEL'
+                },
+                component: () =>
+                    import ('@/view/excel/upload-excel.vue')
+            },
+            {
+                path: 'export-excel',
+                name: 'export-excel',
+                meta: {
+                    icon: 'md-download',
+                    title: '导出EXCEL'
+                },
+                component: () =>
+                    import ('@/view/excel/export-excel.vue')
+            },
+            {
+                path: 'fileupload',
+                name: '文件上传',
+                meta: {
+                    icon: 'md-cloud-upload',
+                    title: '文件上传',
+                },
+                component: () =>
+                    import ('@/view/file/FileUpLoad.vue')
+            },
+
+        ]
     },
-    component: () => import('@/view/error-page/404.vue')
-  }
+
+    {
+        path: '/argu',
+        name: 'argu',
+        meta: {
+            hideInMenu: true
+        },
+        component: Main,
+        children: [{
+                path: 'params/:id',
+                name: 'params',
+                meta: {
+                    icon: 'md-flower',
+                    title: route => `{{ params }}-${route.params.id}`,
+                    notCache: true,
+                    beforeCloseName: 'before_close_normal'
+                },
+                component: () =>
+                    import ('@/view/argu-page/params.vue')
+            },
+            {
+                path: 'query',
+                name: 'query',
+                meta: {
+                    icon: 'md-flower',
+                    title: route => `{{ query }}-${route.query.id}`,
+                    notCache: true
+                },
+                component: () =>
+                    import ('@/view/argu-page/query.vue')
+            }
+        ]
+    },
+    {
+        path: '/401',
+        name: 'error_401',
+        meta: {
+            hideInMenu: true
+        },
+        component: () =>
+            import ('@/view/error-page/401.vue')
+    },
+    {
+        path: '/500',
+        name: 'error_500',
+        meta: {
+            hideInMenu: true
+        },
+        component: () =>
+            import ('@/view/error-page/500.vue')
+    },
+    {
+        path: '*',
+        name: 'error_404',
+        meta: {
+            hideInMenu: true
+        },
+        component: () =>
+            import ('@/view/error-page/404.vue')
+    }
 ]

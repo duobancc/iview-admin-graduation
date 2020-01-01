@@ -1,7 +1,8 @@
 <template>
   <div>
     <Card>
-      <tables ref="tables" editable searchable search-place="top" v-model="tableData" :columns="columns" @on-delete="handleDelete" />
+      <tables ref="tables" editable searchable search-place="top" v-model="showdata" :columns="columns" @on-delete="handleDelete"  />
+      <Page :total="dataCount" :page-size="pageSize" show-total @on-change="changepage" show-elevator></Page>
    <!-- <Button style="margin: 10px 0;" type="primary" @click="exportExcel">导出为Csv文件</Button> -->
     </Card>
   </div>
@@ -17,6 +18,9 @@ export default {
   },
   data () {
     return {
+      showdata:[],
+      pageSize:10,
+      dataCount: 0,
       columns: [
         { title:'工号', key:'t_id',sortable:true},
         { title: '姓名', key: 't_name', sortable: true },
@@ -49,7 +53,11 @@ export default {
     }
   },
   methods: {
-    
+    changepage(index){
+        var _star = (index - 1)* this.pageSize
+        var _end  = index * this.pageSize
+        this.showdata = this.tableData.slice(_star,_end) 
+    },
     handleDelete (params) {
       console.log(params)
     },
@@ -60,8 +68,15 @@ export default {
     }
   },
   mounted () {
+    // https://www.jianshu.com/p/15e7a3eeff6b
     getUserInfoData().then(res => {
       this.tableData = res.data
+      this.dataCount = this.tableData.length
+      if(this.dataCount < this.pageSize ){
+        this.showdata=this.tableData
+      }else{
+        this.showdata=this.tableData.slice(0,this.pageSize)
+      }
     })
   }
 }

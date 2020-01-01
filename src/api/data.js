@@ -6,6 +6,12 @@ export const getTableData = () => {
         method: 'get'
     })
 }
+export const getUserInfoData = () => {
+    return axios.request({
+        url: 'http://localhost/index.php/user/Userinfo/selectAll',
+        method: 'get'
+    })
+}
 
 export const getDragList = () => {
     return axios.request({

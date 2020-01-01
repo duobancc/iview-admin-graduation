@@ -2,14 +2,14 @@
   <div>
     <Card>
       <tables ref="tables" editable searchable search-place="top" v-model="tableData" :columns="columns" @on-delete="handleDelete" />
-      <Button style="margin: 10px 0;" type="primary" @click="exportExcel">导出为Csv文件</Button>
+   <!-- <Button style="margin: 10px 0;" type="primary" @click="exportExcel">导出为Csv文件</Button> -->
     </Card>
   </div>
 </template>
 
 <script>
 import Tables from '_c/tables'
-import { getTableData } from '@/api/data'
+import { getUserInfoData } from '@/api/data'
 export default {
   name: 'tables_page',
   components: {
@@ -18,12 +18,10 @@ export default {
   data () {
     return {
       columns: [
-        { title:'工号', key:'number',sortable:true},
-        { title: '姓名', key: 'name', sortable: true },
-        { title: '职称', key: 'jobtitle', editable: false },
-        { title:'部门', key: 'dpartment', sortable:true, editable:true},
-        { title:'额定工作量', key:'workload' ,sortable:true,editable:true},
-        { title: '入校时间', key: 'createTime',sortable:true},
+        { title:'工号', key:'t_id',sortable:true},
+        { title: '姓名', key: 't_name', sortable: true },
+        { title: '职称', key: 't_jobtitle' ,sortable:true},
+        { title:'部门', key: 't_department', sortable:true},
         {
           title: '操作',
           key: 'handle',
@@ -41,10 +39,7 @@ export default {
                     vm.$emit('input', params.tableData.filter((item, index) => index !== params.row.initRowIndex))
                   }
                 }
-              }, 
-            //   [
-            //     h('Button', '自定义删除')
-            //   ]
+              }
               )
             }
           ]
@@ -54,6 +49,7 @@ export default {
     }
   },
   methods: {
+    
     handleDelete (params) {
       console.log(params)
     },
@@ -64,7 +60,7 @@ export default {
     }
   },
   mounted () {
-    getTableData().then(res => {
+    getUserInfoData().then(res => {
       this.tableData = res.data
     })
   }

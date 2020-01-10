@@ -8,36 +8,7 @@
       &nbsp;&nbsp;
       <Button @click="handleSearch" class="search-btn" type="primary"><Icon type="search"/>&nbsp;&nbsp;搜索</Button>
       &nbsp;&nbsp;
-      <Button  @click="modal1 = true" class="search-btn" type="primary" ghost>添加</Button>
-      <Modal
-        draggable 
-        v-model="modal1"
-        title="添加新教师"
-        @on-ok="handleSubmit(formInline)"
-        @on-cancel="cancel">
-        <Form ref="formInline" :model="formInline">
-        <FormItem prop="t_name" label="教师名">
-            <Input type="text" v-model="formInline.t_name">
-            </Input>
-        </FormItem>
-        <FormItem prop="t_jobtitle" label="教师职称">
-            <Input type="text" v-model="formInline.t_jobtitle">
-            </Input> 
-        </FormItem>
-         <FormItem label="部门" prpo="t_depno">
-            <Select v-model="formInline.t_depno">
-                <Option value=10>信息工程学院</Option>
-                <Option value=20>经济管理学院</Option>
-                <Option value=30>医学院</Option>
-                <Option value=40>艺术设计学院</Option>
-                <Option value=50>机电工程学院</Option>
-                <Option value=60>文化旅游学院</Option>
-                <Option value=70>公共基础部</Option>
-                <Option value=80>社会科学部</Option>
-            </Select>
-        </FormItem>
-    </Form>
-    </Modal>
+      <Button @click="handleAdd" class="search-btn" type="primary" ghost>添加</Button>
     </div>
     <Table
       ref="tablesMain"
@@ -82,20 +53,12 @@
 </template>
 
 <script>
-import {AddNewTeacher} from '@/api/data'
 import TablesEdit from './edit.vue'
 import handleBtns from './handle-btns'
 import './index.less'
 export default {
   name: 'Tables',
   props: {
-    
-    alldata: {
-      type: Array,
-      default () {
-        return []
-      }
-    },
     value: {
       type: Array,
       default () {
@@ -153,10 +116,6 @@ export default {
       type: Boolean,
       default: false
     },
-    addable:{
-      type: Boolean,
-      default: false
-    },
     /**
      * @description 全局设置是否可编辑
      */
@@ -187,13 +146,6 @@ export default {
    */
   data () {
     return {
-      modal1:false,
-      formInline: {
-          // t_id:'',
-          t_name: '',
-          t_jobtitle: '',
-          t_depno:''
-      },
       insideColumns: [],
       insideTableData: [],
       edittingCellId: '',
@@ -203,19 +155,6 @@ export default {
     }
   },
   methods: {
-    cancel () {
-      this.$Message.info('你已取消添加');
-            },
-    handleSubmit(fromdata){
-       AddNewTeacher(fromdata).then(res => {
-              if (res.data === 1){
-                this.$Message.success('添加成功')
-              }else{
-                this.$Message.error('添加失败')
-              }
-       })
-        //console.log(fromdata)
-    },
     suportEdit (item, index) {
       item.render = (h, params) => {
         return h(TablesEdit, {
@@ -276,8 +215,10 @@ export default {
       if (e.target.value === '') this.insideTableData = this.value
     },
     handleSearch () {
-      //console.log(this.alldata);
-      this.insideTableData = this.alldata.filter(item => item[this.searchKey].indexOf(this.searchValue) > -1)
+      this.insideTableData = this.value.filter(item => item[this.searchKey].indexOf(this.searchValue) > -1)
+    },
+    handleAdd(){
+      
     },
     handleTableData () {
       this.insideTableData = this.value.map((item, index) => {

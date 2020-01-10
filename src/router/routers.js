@@ -68,15 +68,15 @@ export default [{
                 import ('@/view/single-page/message/index.vue')
         }]
     },
-    {
-        path: '',
-        name: 'doc',
-        meta: {
-            title: '文档',
-            href: 'https://lison16.github.io/iview-admin-doc/#/',
-            icon: 'ios-book'
-        }
-    },
+    // {
+    //     path: '',
+    //     name: 'doc',
+    //     meta: {
+    //         title: '文档',
+    //         href: 'https://lison16.github.io/iview-admin-doc/#/',
+    //         icon: 'ios-book'
+    //     }
+    // },
     {
         path: '/user',
         name: '用户管理',
@@ -109,11 +109,21 @@ export default [{
                 path: 'auth',
                 name: 'authority',
                 meta: {
-                    icon: 'md-key',
-                    title: '权限管理'
+                    icon: 'md-grid',
+                    title: '测试表'
                 },
                 component: () =>
                     import ('@/view/user/Auth.vue')
+            },
+            {
+                path: 'new_table',
+                name: 'newTable',
+                meta: {
+                    icon: 'md-grid',
+                    title: '新表格示例'
+                },
+                component: () =>
+                    import ('@/view/user/new_table')
             }
         ]
     },
@@ -145,17 +155,6 @@ export default [{
                 },
                 component: () =>
                     import ('@/view/assessment/assessment_table.vue')
-            },
-            {
-                path: 'assessment_write',
-                name: '绩效录入',
-                meta: {
-                    icon: 'md-grid',
-                    title: '绩效录入'
-                },
-                component: () =>
-                    import ('../view/assessment/assessment_write')
-
             }
         ]
     },
@@ -188,21 +187,11 @@ export default [{
                     import ('@/view/inside/table.vue')
             },
             {
-                path: 'change',
-                name: '校内工作量录入与修改',
-                meta: {
-                    icon: 'md-grid',
-                    title: '校内工作量录入与修改'
-                },
-                component: () =>
-                    import ('@/view/inside/change.vue')
-            },
-            {
                 path: 'review',
-                name: '审核',
+                name: 'pie',
                 meta: {
                     icon: 'md-grid',
-                    title: '审核'
+                    title: 'pie'
                 },
                 component: () =>
                     import ('@/view/inside/review.vue')
@@ -238,16 +227,6 @@ export default [{
                     import ('@/view/outside/table.vue')
             },
             {
-                path: 'changes',
-                name: '校外工作量录入与修改',
-                meta: {
-                    icon: 'md-grid',
-                    title: '工作量录入与修改'
-                },
-                component: () =>
-                    import ('@/view/outside/changes.vue')
-            },
-            {
                 path: 'outreview',
                 name: '校外审核',
                 meta: {
@@ -269,36 +248,36 @@ export default [{
             }
         ]
     },
-    {
-        path: '/update',
-        name: 'update',
-        meta: {
-            icon: 'md-cloud-upload',
-            title: '数据上传'
-        },
-        component: Main,
-        children: [{
-                path: 'update_table_page',
-                name: 'update_table_page',
-                meta: {
-                    icon: 'ios-document',
-                    title: '上传Csv'
-                },
-                component: () =>
-                    import ('@/view/update/update-table.vue')
-            },
-            {
-                path: 'update_paste_page',
-                name: 'update_paste_page',
-                meta: {
-                    icon: 'md-clipboard',
-                    title: '粘贴表格数据',
-                },
-                component: () =>
-                    import ('@/view/update/update-paste.vue')
-            }
-        ]
-    },
+    // {
+    //     path: '/update',
+    //     name: 'update',
+    //     meta: {
+    //         icon: 'md-cloud-upload',
+    //         title: '数据上传'
+    //     },
+    //     component: Main,
+    //     children: [{
+    //             path: 'update_table_page',
+    //             name: 'update_table_page',
+    //             meta: {
+    //                 icon: 'ios-document',
+    //                 title: '上传Csv'
+    //             },
+    //             component: () =>
+    //                 import ('@/view/update/update-table.vue')
+    //         },
+    //         {
+    //             path: 'update_paste_page',
+    //             name: 'update_paste_page',
+    //             meta: {
+    //                 icon: 'md-clipboard',
+    //                 title: '粘贴表格数据',
+    //             },
+    //             component: () =>
+    //                 import ('@/view/update/update-paste.vue')
+    //         }
+    //     ]
+    // },
 
     {
         path: '/file',
@@ -319,26 +298,26 @@ export default [{
                 component: () =>
                     import ('@/view/excel/upload-excel.vue')
             },
-            {
-                path: 'export-excel',
-                name: 'export-excel',
-                meta: {
-                    icon: 'md-download',
-                    title: '导出EXCEL'
-                },
-                component: () =>
-                    import ('@/view/excel/export-excel.vue')
-            },
-            {
-                path: 'fileupload',
-                name: '文件上传',
-                meta: {
-                    icon: 'md-cloud-upload',
-                    title: '文件上传',
-                },
-                component: () =>
-                    import ('@/view/file/FileUpLoad.vue')
-            },
+            // {
+            //     path: 'export-excel',
+            //     name: 'export-excel',
+            //     meta: {
+            //         icon: 'md-download',
+            //         title: '导出EXCEL'
+            //     },
+            //     component: () =>
+            //         import ('@/view/excel/export-excel.vue')
+            // },
+            // {
+            //     path: 'fileupload',
+            //     name: '文件上传',
+            //     meta: {
+            //         icon: 'md-cloud-upload',
+            //         title: '文件上传',
+            //     },
+            //     component: () =>
+            //         import ('@/view/file/FileUpLoad.vue')
+            // },
 
         ]
     },

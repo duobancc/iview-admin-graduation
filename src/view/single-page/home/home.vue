@@ -1,22 +1,22 @@
 <template>
   <div>
-    <Row :gutter="20">
+    <!-- <Row :gutter="20">
       <i-col :xs="12" :md="8" :lg="4" v-for="(infor, i) in inforCardData" :key="`infor-${i}`" style="height: 120px;padding-bottom: 10px;">
         <infor-card shadow :color="infor.color" :icon="infor.icon" :icon-size="36">
           <count-to :end="infor.count" count-class="count-style"/>
           <p>{{ infor.title }}</p>
         </infor-card>
       </i-col>
-    </Row>
+    </Row> -->
     <Row :gutter="20" style="margin-top: 10px;">
-      <i-col :md="24" :lg="8" style="margin-bottom: 20px;">
+      <i-col :md="50" :lg="15" style="margin-bottom: 20px;">
         <Card shadow>
-          <chart-pie style="height: 300px;" :value="pieData" text="用户访问来源"></chart-pie>
+          <chart-pie style="height: 300px;" :value="pieData" text="2019年当量学时总计"></chart-pie>
         </Card>
       </i-col>
       <i-col :md="24" :lg="16" style="margin-bottom: 20px;">
         <Card shadow>
-          <chart-bar style="height: 300px;" :value="barData" text="每周用户活跃量"/>
+          <chart-bar style="height: 300px;" :value="barData" text="2013-2018绩效评分"/>
         </Card>
       </i-col>
     </Row>
@@ -53,20 +53,22 @@ export default {
         { title: '新增页面', icon: 'md-map', count: 14, color: '#9A66E4' }
       ],
       pieData: [
-        { value: 335, name: '直接访问' },
-        { value: 310, name: '邮件营销' },
-        { value: 234, name: '联盟广告' },
-        { value: 135, name: '视频广告' },
-        { value: 1548, name: '搜索引擎' }
+        { value: 10139.18, name: '公共基础部' },
+        { value: 3747.345, name: '社会科学部' },
+        { value: 14173.978, name: '信工' },
+        { value: 22242.38, name: '医学院' },
+        { value: 9247.18, name: '文旅学院'},
+          { value: 11315.42, name: '经管'},
+            { value: 7783.97, name: '艺术设计'},
+              { value: 15823.28, name: '机电'}
+
       ],
       barData: {
-        Mon: 13253,
-        Tue: 34235,
-        Wed: 26321,
-        Thu: 12340,
-        Fri: 24643,
-        Sat: 1322,
-        Sun: 1324
+        '2013-2014学年': 852.35,
+        '2014-2015学年': 793.35,
+        '2015-2016学年': 866.45,
+        '2016-2017学年': 855.09,
+        '2017-2018学年': 803.43
       }
     }
   },

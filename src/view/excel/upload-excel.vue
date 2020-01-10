@@ -38,7 +38,7 @@ export default {
   name: 'upload-excel',
   data () {
     return {
-      uploadLoading: false,
+      uploadLoading: true,
       progressPercent: 0,
       showProgress: false,
       showRemoveFile: false,

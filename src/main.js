@@ -5,7 +5,7 @@ import App from './App'
 import router from './router'
 import store from './store'
 import iView from 'iview'
-import i18n from '@/locale'
+// import i18n from '@/locale'
 import config from '@/config'
 import importDirective from '@/directive'
 import { directive as clickOutside } from 'v-click-outside-x'
@@ -14,19 +14,21 @@ import './index.less'
 import '@/assets/icons/iconfont.css'
 import TreeTable from 'tree-table-vue'
 import VOrgTree from 'v-org-tree'
-import 'v-org-tree/dist/v-org-tree.css'
+//import 'v-org-tree/dist/v-org-tree.css'
 
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+import axios from 'axios'
+import qs from 'qs'
 
 
 // 实际打包时应该不引入mock
 /* eslint-disable */
 if (process.env.NODE_ENV !== 'production') require('@/mock')
-
-Vue.use(iView, {
-    i18n: (key, value) => i18n.t(key, value)
-})
+Vue.prototype.$http = axios;
+Vue.prototype.$qs = qs
+axios.defaults.baseURl = 'http://localhost:80/index.php'
+Vue.use(iView)
 Vue.use(ElementUI)
 Vue.use(TreeTable)
 Vue.use(VOrgTree)
@@ -52,7 +54,6 @@ Vue.directive('clickOutside', clickOutside)
 new Vue({
     el: '#app',
     router,
-    i18n,
     store,
     render: h => h(App)
 })

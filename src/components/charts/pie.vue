@@ -46,7 +46,7 @@ export default {
           {
             type: 'pie',
             radius: '55%',
-            center: ['50%', '60%'],
+            center: ['70%', '60%'],
             data: this.value,
             itemStyle: {
               emphasis: {

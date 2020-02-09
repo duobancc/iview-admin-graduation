@@ -12,7 +12,7 @@
         <span slot="prepend">
           <Icon :size="14" type="md-lock"></Icon>
         </span>
-      </Input>
+        </Input>
     </FormItem>
     <FormItem>
       <Button @click="handleSubmit" type="primary" long>登录</Button>

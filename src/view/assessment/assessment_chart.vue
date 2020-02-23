@@ -4,10 +4,9 @@
 
 <script>
 import echarts from 'echarts'
-// import resize from './mixins/resize'
+
 
 export default {
-  // mixins: [resize],
   props: {
     className: {
       type: String,
@@ -28,11 +27,12 @@ export default {
   },
   data() {
     return {
-      chart: null
+      chart: null,
+      ychar:''
     }
   },
   mounted() {
-    this.initChart()
+    this.getChart()
   },
   beforeDestroy() {
     if (!this.chart) {
@@ -42,15 +42,23 @@ export default {
     this.chart = null
   },
   methods: {
-    initChart() {
-      this.chart = echarts.init(document.getElementById(this.id))
-
+    getChart(){
+      this.$http.request({
+        url:'http://localhost/index.php/bases/basedata/countAll',
+        method:'POST',        
+      }).then(res=>{
+            if(res.status!=200){
+              return  this.$message.error("获取柱状图失败！")
+            }
+            else{
+               this.chart = echarts.init(document.getElementById(this.id))
+              this.ychar=res.data
       this.chart.setOption({
                 color: ['#3398DB'],
     tooltip : {
         trigger: 'axis',
-        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
-            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+        axisPointer : {           
+            type : 'shadow'        
         }
     },
     grid: {
@@ -78,11 +86,17 @@ export default {
             name:'直接访问',
             type:'bar',
             barWidth: '60%',
-            data:[10, 52, 200, 334, 390, 330, 220]
+            data:this.ychar
         }
     ]
             });
-      }
+            }
+      }).catch(error=>{
+          alert("网络连接失败");
+      });
+    },
+
+
   }
 }
 </script>

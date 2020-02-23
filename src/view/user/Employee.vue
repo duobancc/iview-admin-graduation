@@ -97,6 +97,7 @@ export default {
       deleteUser(delete_id).then(res => {
           if (res.data === 1){
             this.$Message.success('删除成功')
+            this.showdata=this.tableData.slice(0,this.pageSize)
           }else{
             this.$Message.error('删除失败')
           }

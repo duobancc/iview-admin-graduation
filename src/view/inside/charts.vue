@@ -1,22 +1,28 @@
 <template>
-  <div class="chart-container">
-    <chart height="100%" width="100%" />
-  </div>
+    <Tabs type="card">
+        <TabPane label="2018年-2019年不同部门工作量情况">
+          <example style="height: 310px;" text=""/>
+        </TabPane>
+         <TabPane label="同年份不同部门工作量情况">
+          
+        </TabPane>
+         <TabPane label="总工作量不同部门工作量情况">
+        </TabPane>
+    </Tabs>
 </template>
-
 <script>
-import Chart from '@/components/charts/LineMarker'
-
-export default {
-  name: 'LineChart',
-  components: { Chart }
-}
+import Example from './example.vue'
+    export default {
+      components:{
+         Example
+      },
+      methods:{
+         
+      } ,
+      data() {
+        return {
+            bumen:['信工','医学院','经管','艺术设计','机电']
+        }
+      } 
+    }
 </script>
-
-<style scoped>
-.chart-container{
-  position: relative;
-  width: 100%;
-  height: calc(100vh - 84px);
-}
-</style>

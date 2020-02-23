@@ -13,7 +13,6 @@ export const login = ({ userName, password }) => {
     })
 }
 
-
 export const getUserInfo = (token) => {
 
     return axios.request({

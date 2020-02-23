@@ -4,6 +4,12 @@ import qs from 'qs'
 
 // (教师信息)用户数据api
 
+export const authInfo = () => {
+    return axios.request({
+        url: 'http://localhost/index.php/user/Userinfo/loginUser',
+        method: 'get'
+    })
+}
 
 export const getUser = () => {
     return axios.request({

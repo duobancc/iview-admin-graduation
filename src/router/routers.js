@@ -50,34 +50,6 @@ export default [{
         }]
     },
     {
-        path: '/message',
-        name: 'message',
-        component: Main,
-        meta: {
-            hideInBread: true,
-            hideInMenu: true
-        },
-        children: [{
-            path: 'message_page',
-            name: 'message_page',
-            meta: {
-                icon: 'md-notifications',
-                title: '消息中心'
-            },
-            component: () =>
-                import ('@/view/single-page/message/index.vue')
-        }]
-    },
-    // {
-    //     path: '',
-    //     name: 'doc',
-    //     meta: {
-    //         title: '文档',
-    //         href: 'https://lison16.github.io/iview-admin-doc/#/',
-    //         icon: 'ios-book'
-    //     }
-    // },
-    {
         path: '/user',
         name: '用户管理',
         meta: {
@@ -100,27 +72,17 @@ export default [{
                 name: 'department',
                 meta: {
                     icon: 'md-apps',
-                    title: '部门管理'
+                    title: '用户详细信息(权限)'
                 },
                 component: () =>
                     import ('@/view/user/Department.vue')
-            },
-            {
-                path: 'auth',
-                name: 'authority',
-                meta: {
-                    icon: 'md-grid',
-                    title: '测试表'
-                },
-                component: () =>
-                    import ('@/view/user/Auth.vue')
             },
             {
                 path: 'new_table',
                 name: 'newTable',
                 meta: {
                     icon: 'md-grid',
-                    title: '新表格示例'
+                    title: '教师管理表格二'
                 },
                 component: () =>
                     import ('@/view/user/new_table')
@@ -178,18 +140,19 @@ export default [{
             },
             {
                 path: 'table',
-                name: 'table',
+                name: '表格',
                 meta: {
                     icon: 'md-grid',
-                    title: 'table'
+                    title: '表格'
                 },
                 component: () =>
-                    import ('@/view/inside/table.vue')
+                    import ('@/view/inside/new_table.vue')
             },
             {
                 path: 'review',
                 name: 'pie',
                 meta: {
+                    access: ['super_admin'],
                     icon: 'md-grid',
                     title: 'pie'
                 },
@@ -230,6 +193,7 @@ export default [{
                 path: 'outreview',
                 name: '校外审核',
                 meta: {
+                    access: ['super_admin'],
                     icon: 'md-grid',
                     title: '审核'
                 },
@@ -241,10 +205,11 @@ export default [{
                 name: '工作量修正',
                 meta: {
                     icon: 'md-grid',
-                    title: '修正'
+                    title: '修正',
+
                 },
                 component: () =>
-                    import ('@/view/outside/amend.vue')
+                    import ('@/view/outside/review.vue')
             }
         ]
     },
@@ -321,7 +286,6 @@ export default [{
 
         ]
     },
-
     {
         path: '/argu',
         name: 'argu',

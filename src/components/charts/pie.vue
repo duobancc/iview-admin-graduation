@@ -28,7 +28,6 @@ export default {
   created () {
     this.$nextTick(() => {
       let legend = this.value.map(_ => _.name)
-      console.log(legend) 
       let option = {
         title: {
           text: this.text,
@@ -60,7 +59,6 @@ export default {
           }
         ]
       }
-      console.log(this.value)
       this.dom = echarts.init(this.$refs.dom, 'tdTheme')
       this.dom.setOption(option)
       on(window, 'resize', this.resize)

@@ -52,17 +52,6 @@ import {pieData} from '@/api/IN_data'
             radius: '55%',
             center: ['50%', '60%'],
             data:this.data2,
-    //         data: [
-    //     { value: 10139.18, name: '公共基础部' },
-    //     { value: 3747.345, name: '社会科学部' },
-    //     { value: 14173.978, name: '信工' },
-    //     { value: 22242.38, name: '医学院' },
-    //     { value: 9247.18, name: '文旅学院'},
-    //     { value: 11315.42, name: '经管'},
-    //     { value: 7783.97, name: '艺术设计'},
-    //     { value: 15823.28, name: '机电'}
-
-    //   ],
             emphasis: {
                 itemStyle: {
                     shadowBlur: 10,

@@ -9,7 +9,7 @@
 
 <script>
 import Tables from '@/components/tables/tablescopy'
-import { getUser,deleteUser,postUpdateUser,getXWTableData} from '@/api/data'
+import {getXWTableData} from '@/api/OUT_data'
 export default {
   name: 'tables_page',
   components: {
@@ -21,16 +21,17 @@ export default {
       pageSize:10,
       dataCount: 0,
       columns: [
-       { title:'姓名', key:'xw_name',sortable:true},
-        { title: '单位', key: 'xw_danwei', sortable: true },
-        { title: '生份证号', key: 'xw_idNumber' ,sortable:true},
-        { title:'银行卡号', key: 'xw_cardNumber', sortable:true},
-        { title:'开户名称', key: 'xw_cardName', sortable:true},
-        { title:'职称', key: 'xw_zc', sortable:true},
-        { title:'类别', key: 'xw_leibie', sortable:true},
-        { title:'津贴', key: 'xw_jintie', sortable:true},
-        { title:'课时', key: 'xw_keshi', sortable:true},
-        { title:'金额', key: 'xw_jine', sortable:true},
+       { title:'姓名', key:'xw_name'},
+        { title: '单位', key: 'xw_dwmc' },
+        { title: '身份证号', key: 'xw_idNumber' },
+        { title:'银行卡号', key: 'xw_idCard'},
+        { title:'开户名称', key: 'xw_cardName'},
+        { title:'职称', key: 'xw_zc'},
+        { title:'类别', key: 'xw_leibei'},
+        { title:'津贴', key: 'xw_biaozhun'},
+        { title:'课时', key: 'xw_shuliang'},
+        { title:'金额', key: 'xw_jine'},
+         { title:'部门', key: 'xw_bumen' },
         {
           title: '操作',
           key: 'handle',

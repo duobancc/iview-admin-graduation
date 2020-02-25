@@ -1,3 +1,0 @@
-<template>
-      tables
-</template>

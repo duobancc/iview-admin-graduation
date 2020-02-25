@@ -29,3 +29,19 @@ export const Update =(changedata) => {
         data:qs.stringify(changedata)
     })
 }
+
+export const chartData = () => {
+    // 获取图表数据
+    return axios.request({
+        url:'http://localhost/index.php/inside/Info/pieData',
+        method:'post',
+       // data:''
+    })
+}
+export const pieData = () => {
+    // 获取图表数据二
+    return axios.request({
+        url:'http://localhost/index.php/inside/Info/piesData',
+        method:'post',
+    })
+}

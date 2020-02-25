@@ -1,5 +1,5 @@
 <template>
-  <div ref="dom" class="charts chart-pie"></div>
+  <div  ref="dom" class="charts chart-pie"></div>
 </template>
 
 <script>
@@ -16,6 +16,7 @@ export default {
   },
   data () {
     return {
+      
       dom: null
     }
   },
@@ -24,9 +25,10 @@ export default {
       this.dom.resize()
     }
   },
-  mounted () {
+  created () {
     this.$nextTick(() => {
       let legend = this.value.map(_ => _.name)
+      console.log(legend) 
       let option = {
         title: {
           text: this.text,
@@ -58,6 +60,7 @@ export default {
           }
         ]
       }
+      console.log(this.value)
       this.dom = echarts.init(this.$refs.dom, 'tdTheme')
       this.dom.setOption(option)
       on(window, 'resize', this.resize)

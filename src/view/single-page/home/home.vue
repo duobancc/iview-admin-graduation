@@ -31,6 +31,7 @@
 <script>
 import InforCard from '_c/info-card'
 import CountTo from '_c/count-to'
+import {chartData} from '@/api/IN_data'
 import { ChartPie, ChartBar } from '_c/charts'
 import Example from './example.vue'
 export default {
@@ -44,6 +45,8 @@ export default {
   },
   data () {
     return {
+      pieData: [],
+      temp:{name:'',value:''},
       inforCardData: [
         { title: '新增用户', icon: 'md-person-add', count: 803, color: '#2d8cf0' },
         { title: '累计点击', icon: 'md-locate', count: 232, color: '#19be6b' },
@@ -72,9 +75,17 @@ export default {
       }
     }
   },
-  mounted () {
-    //
-  }
+  // mounted () {
+  //   chartData().then(res => {
+  //              let data = res.data;
+  //              for (var i=0;i<data.length;i++)
+  //                     { 
+  //                       this.temp.name = data[i]['gzl_bumen']
+  //                       this.temp.value = data[i]['ngzl'].toFixed(2)
+  //                       this.pieData.push(this.temp)
+  //                     }
+  //          })
+  // }
 }
 </script>
 

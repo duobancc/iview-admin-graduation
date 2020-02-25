@@ -136,7 +136,7 @@ export default [{
                     title: 'chart'
                 },
                 component: () =>
-                    import ('@/view/inside/charts.vue')
+                    import ('@/view/inside/example.vue')
             },
             {
                 path: 'table',
@@ -150,14 +150,24 @@ export default [{
             },
             {
                 path: 'review',
-                name: 'pie',
+                name: '审核',
                 meta: {
                     access: ['super_admin'],
+                    icon: 'md-grid',
+                    title: '审核'
+                },
+                component: () =>
+                    import ('@/view/inside/review.vue')
+            },
+            {
+                path: 'pie',
+                name: 'pie',
+                meta: {
                     icon: 'md-grid',
                     title: 'pie'
                 },
                 component: () =>
-                    import ('@/view/inside/review.vue')
+                    import ('@/view/inside/pie.vue')
             }
         ]
     },

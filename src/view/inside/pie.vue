@@ -20,7 +20,9 @@ import {pieData} from '@/api/IN_data'
                         this.data2.push(data[i])
                     }
                     this.draw();
-                })
+                }).catch(err => {
+  console.log(err)
+})
              },
              methods: {
                    draw(){

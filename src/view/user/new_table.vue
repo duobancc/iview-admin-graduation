@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Input @on-change="handleClear" clearable placeholder="输入关键字搜索" class="search-input" v-model="search" width="200px"/>
        <Table :columns="columns" :data="showdata" >
     <template slot-scope="{ row, index }" slot="t_name">
       <Input type="text" v-model="editName" v-if="editIndex === index" />

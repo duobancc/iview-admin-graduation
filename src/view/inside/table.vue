@@ -1,6 +1,6 @@
 <template>
   <div>
-       <Table :columns="columns" :data="showdata" >
+       <Table :columns="columns" :data="showdata" height="450" >
     <template slot-scope="{ row, index }" slot="gzl_name">
       <Input type="text" v-model="editName" v-if="editIndex === index" readonly />
       <span v-else>{{ row.gzl_name }}</span>
@@ -213,7 +213,9 @@ export default {
       }else{
         this.showdata=this.tableData.slice(0,this.pageSize)
       }
-    })
+    }).catch(err => {
+  console.log(err)
+})
   }
   }
 </script>

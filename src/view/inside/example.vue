@@ -23,7 +23,9 @@ import {chartData} from '@/api/IN_data'
                          this.S2data.push(data[i]['d2xq'].toFixed(2))
                       }
                       this.draw();
-                })
+                }).catch(err => {
+                     console.log(err)
+})
              },
              methods: {
                    draw(){

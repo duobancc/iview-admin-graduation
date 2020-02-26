@@ -1,19 +1,20 @@
 <template>
   <div>
-    <Card>
-    <tables ref="tabless" :alldata="tableData" @on-save-edit="handleEdit" editable searchable search-place="top" v-model="showdata" :columns="columns" @on-delete="handleDelete"  />
-    <Page :total="dataCount" :page-size="pageSize" show-total @on-change="changepage" show-elevator></Page>
-    </Card>
+    <tables ref="tabless" :alldata="tableData" 
+    @on-save-edit="handleEdit" editable searchable search-place="top" v-model="showdata" 
+    :columns="columns" height="480" @on-delete="handleDelete" 
+    highlight-row  />
+    <!-- <Page :total="dataCount" :page-size="pageSize" show-total @on-change="changepage" show-elevator></Page> -->
   </div>
 </template>
 
 <script>
-import Tables from '@/components/tables/tablescopy'
+import Tables from '@/components/tables/tables'
 import {getXWTableData} from '@/api/OUT_data'
 export default {
   name: 'tables_page',
   components: {
-    Tables
+    Tables 
   },
   data () {
     return {
@@ -23,7 +24,7 @@ export default {
       columns: [
        { title:'姓名', key:'xw_name'},
         { title: '单位', key: 'xw_dwmc' },
-        { title: '身份证号', key: 'xw_idNumber' },
+        { title: '身份证号', key: 'xw_idNumber' ,width:'180'},
         { title:'银行卡号', key: 'xw_idCard'},
         { title:'开户名称', key: 'xw_cardName'},
         { title:'职称', key: 'xw_zc'},
@@ -125,7 +126,9 @@ export default {
       }else{
         this.showdata=this.tableData.slice(0,this.pageSize)
       }
-    })
+    }).catch(err => {
+  console.log(err)
+})
   }
 }
 </script>

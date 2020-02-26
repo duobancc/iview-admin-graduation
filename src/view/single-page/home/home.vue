@@ -56,7 +56,7 @@ export default {
         { title: '新增页面', icon: 'md-map', count: 14, color: '#9A66E4' }
       ],
       pieData: [
-        { value: 10139.18, name: '公共基础部' },
+        { value: 10139.18, name: "公共基础部" },
         { value: 3747.345, name: '社会科学部' },
         { value: 14173.978, name: '信工' },
         { value: 22242.38, name: '医学院' },

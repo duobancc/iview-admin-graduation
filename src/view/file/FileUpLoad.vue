@@ -1,19 +1,34 @@
 <template>
-
-    <h1>
-        小文件(1-30MB)
-        <p>文件上传</p>
-        <p>文件类别</p>
-        <p>文件显示与下载</p>
-        <p>文件检索</p>
-        <i>使用全文检索引擎Lucene、solr以及elasticsearch
-        https://blog.csdn.net/weixin_37886463/article/details/79447063</i>
-        
-    </h1>
+    <div>
+        <Upload
+            :before-upload="handleUpload"
+            action="//jsonplaceholder.typicode.com/posts/">
+            <Button icon="ios-cloud-upload-outline">Select the file to upload</Button>
+        </Upload>
+        <div v-if="file !== null">Upload file: {{ file.name }} <Button type="text" @click="upload" :loading="loadingStatus">{{ loadingStatus ? 'Uploading' : 'Click to upload' }}</Button></div>
+    </div>
 </template>
-
 <script>
+    export default {
+        data () {
+            return {
+                file: null,
+                loadingStatus: false
+            }
+        },
+        methods: {
+            handleUpload (file) {
+                this.file = file;
+                return false;
+            },
+            upload () {
+                this.loadingStatus = true;
+                setTimeout(() => {
+                    this.file = null;
+                    this.loadingStatus = false;
+                    this.$Message.success('Success')
+                }, 1500);
+            }
+        }
+    }
 </script>
-
-<style>
-</style>

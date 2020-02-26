@@ -10,3 +10,21 @@ export const getXWTableData = () => {
         method: 'get'
     })
 }
+
+export const getPieData =() =>{
+    // 不同学院的校外总工作量比例
+    return axios.request({
+        url:'http://localhost/index.php/outside/userinfo/pieData',
+        method:'get'
+    })
+
+}
+
+export const getBarData =() =>{
+    // 不同学院的校外总工资支出情况
+    return axios.request({
+        url:'http://localhost/index.php/outside/userinfo/barData',
+        method:'get'
+    })
+
+}

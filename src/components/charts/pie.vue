@@ -25,7 +25,7 @@ export default {
       this.dom.resize()
     }
   },
-  created () {
+  mounted () {
     this.$nextTick(() => {
       let legend = this.value.map(_ => _.name)
       let option = {

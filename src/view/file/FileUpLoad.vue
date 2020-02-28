@@ -1,8 +1,11 @@
 <template>
     <div>
         <Upload
+            name='excel'
             :before-upload="handleUpload"
-            action="//jsonplaceholder.typicode.com/posts/">
+            action="string"
+            :headers=headers
+            >
             <Button icon="ios-cloud-upload-outline">Select the file to upload</Button>
         </Upload>
         <div v-if="file !== null">Upload file: {{ file.name }} <Button type="text" @click="upload" :loading="loadingStatus">{{ loadingStatus ? 'Uploading' : 'Click to upload' }}</Button></div>
@@ -23,11 +26,7 @@
             },
             upload () {
                 this.loadingStatus = true;
-                setTimeout(() => {
-                    this.file = null;
-                    this.loadingStatus = false;
-                    this.$Message.success('Success')
-                }, 1500);
+                
             }
         }
     }

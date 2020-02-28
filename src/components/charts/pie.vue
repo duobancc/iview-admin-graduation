@@ -25,7 +25,7 @@ export default {
       this.dom.resize()
     }
   },
-  mounted () {
+  created () {
     this.$nextTick(() => {
       let legend = this.value.map(_ => _.name)
       let option = {
@@ -60,9 +60,11 @@ export default {
         ]
       }
       this.dom = echarts.init(this.$refs.dom, 'tdTheme')
-      this.dom.setOption(option)
+      console.log('>>>>>',option)
+      this.dom.setOption(option,true)
       on(window, 'resize', this.resize)
     })
+   this.resize
   },
   beforeDestroy () {
     off(window, 'resize', this.resize)

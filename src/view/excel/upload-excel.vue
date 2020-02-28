@@ -5,7 +5,13 @@
   <div>
     <Card title="导入EXCEL">
       <Row>
-        <Upload action="" :before-upload="handleBeforeUpload" accept=".xls, .xlsx">
+        <Upload 
+        action="http://localhost/index.php/bases/basedata/excel" 
+        :before-upload="handleBeforeUpload" 
+        accept=".xls, .xlsx"
+        :name=name
+        :headers=headers
+        >
           <Button icon="ios-cloud-upload-outline" :loading="uploadLoading" @click="handleUploadFile">上传文件</Button>
         </Upload>
       </Row>
@@ -33,12 +39,16 @@
   </div>
 </template>
 <script>
+import {excelUpLoad} from '@/api/file'
+
 import excel from '@/libs/excel'
 export default {
   name: 'upload-excel',
   data () {
     return {
-      uploadLoading: true,
+      name:excel,
+      headers:{'Content-Type':'multipart/form-data'},
+      uploadLoading: false,
       progressPercent: 0,
       showProgress: false,
       showRemoveFile: false,

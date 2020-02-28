@@ -66,26 +66,6 @@ export const deleteUser = (delete_id) => {
     })
 }
 
-// 校内工作量数据 api
-
-export const getXueShiData = () => {
-    // 获取信工工作量
-    return axios.request({
-        url: 'http://localhost/index.php/inside/userinfo/selectXueShiXG',
-        method: 'get'
-    })
-}
-
-// 校外工作量数据 api
-
-export const getXWTableData = () => {
-    // 获取校外工作量
-    return axios.request({
-        url: 'http://localhost/index.php/outside/userinfo/selectXWAll',
-        method: 'get'
-    })
-}
-
 export const getDragList = () => {
     return axios.request({
         url: 'get_drag_list',

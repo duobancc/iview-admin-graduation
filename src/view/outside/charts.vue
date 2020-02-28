@@ -29,11 +29,7 @@ export default {
     methods:{
     },
     created(){
-         getPieData().then(res => {
-            this.pieData = res.data;
-        }).catch(err => {
-            console.log(err)
-            })
+         
     },
     mounted(){
         getBarData().then(res => {
@@ -42,6 +38,12 @@ export default {
         }).catch(err =>{
             console.log(err)
         });
+        getPieData().then(res => {
+          console.log(res.data);
+            this.pieData = res.data;
+        }).catch(err => {
+            console.log(err)
+            })
     },
 }
 </script>

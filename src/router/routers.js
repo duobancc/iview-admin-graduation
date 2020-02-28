@@ -282,6 +282,16 @@ export default [{
                 },
                 component: () =>
                     import ('@/view/file/FileUpLoad.vue')
+            },
+            {
+                path: 'upload-1',
+                name: '上传1',
+                meta: {
+                    icon: 'md-add',
+                    title: '上传1'
+                },
+                component: () =>
+                    import ('@/view/file/ht.vue')
             }
         ]
     },

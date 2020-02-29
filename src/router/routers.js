@@ -224,37 +224,6 @@ export default [{
         ]
     },
     {
-        path: '/update',
-        name: 'update',
-        meta: {
-            icon: 'md-cloud-upload',
-            title: '数据上传'
-        },
-        component: Main,
-        children: [{
-                path: 'update_table_page',
-                name: 'update_table_page',
-                meta: {
-                    icon: 'ios-document',
-                    title: '上传Csv'
-                },
-                component: () =>
-                    import ('@/view/update/update-table.vue')
-            },
-            {
-                path: 'update_paste_page',
-                name: 'update_paste_page',
-                meta: {
-                    icon: 'md-clipboard',
-                    title: '粘贴表格数据',
-                },
-                component: () =>
-                    import ('@/view/update/update-paste.vue')
-            }
-        ]
-    },
-
-    {
         path: '/file',
         name: '文件管理',
         meta: {
@@ -264,16 +233,7 @@ export default [{
         },
         component: Main,
         children: [
-            {
-                path: 'upload-excel',
-                name: 'upload-excel',
-                meta: {
-                    icon: 'md-add',
-                    title: '导入EXCEL'
-                },
-                component: () =>
-                    import ('@/view/excel/upload-excel.vue')
-            },{
+           {
                 path: 'upload-test',
                 name: '上传',
                 meta: {
@@ -282,16 +242,6 @@ export default [{
                 },
                 component: () =>
                     import ('@/view/file/FileUpLoad.vue')
-            },
-            {
-                path: 'upload-1',
-                name: '上传1',
-                meta: {
-                    icon: 'md-add',
-                    title: '上传1'
-                },
-                component: () =>
-                    import ('@/view/file/ht.vue')
             }
         ]
     },
